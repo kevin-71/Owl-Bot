@@ -20,11 +20,6 @@ client = commands.Bot()
 #https://docs.python.org/fr/3/library/datetime.html###########################################
 
 
-#Corentin https://www.myefrei.fr/api/public/student/planning/oAQtG1Rd7JQhO_GETSaF7w
-#KEVIN https://www.myefrei.fr/api/public/student/planning/yAvRXlcfkHyKI9wOxigssw
-#MAXIME https://www.myefrei.fr/api/public/student/planning/wg-Wzwjdw6-Fg8kp5cr5ww
-
-
 def get_agenda(url): # import l'agenda
     r = requests.get(url)
     cal = icalendar.Calendar.from_ical(r.content)
@@ -109,15 +104,15 @@ async def planning(interaction:discord.Interaction,prénom:str,date:str):
     print(prénom)
     print(date)
 
-    if prénom=="maxime":
-        url="https://www.myefrei.fr/api/public/student/planning/wg-Wzwjdw6-Fg8kp5cr5ww"
-    if prénom=="corentin":
-        url="https://www.myefrei.fr/api/public/student/planning/oAQtG1Rd7JQhO_GETSaF7w"
-    if prénom=="kevin":
-        url="https://www.myefrei.fr/api/public/student/planning/yAvRXlcfkHyKI9wOxigssw"
+    if prénom=="prenom1":
+        url=""
+    if prénom=="prenom2":
+        url=""
+    if prénom=="prenom3":
+        url=""
     
     #Regarde si le prénom donné existe
-    if prénom in ["maxime", "corentin","kevin"]:
+    if prénom in ["prenom2", "prenom1","prenom3"]:
         cal=get_agenda(url)   
         date=transfo_date(date)
         #Regarde si la date donnée existe   
@@ -157,6 +152,6 @@ async def planning(interaction:discord.Interaction,prénom:str,date:str):
         await interaction.response.send_message("Syntaxe invalide. Le prénom est incorrecte",ephemeral=True) #ephemeral permet d'afficher le message que pour l'utilisateur
     print("ok")
     
-client.run('MTAzMjYzMjk2NjE3OTk5OTgwNg.GQNBMw.gaXmkjAytqtweemSXGhUWSiZ5lAalNQfou5LA4')      
+client.run('Token')      
 
 
